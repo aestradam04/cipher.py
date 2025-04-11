@@ -116,6 +116,7 @@ def vigenere_encode(string, phrase):
         Vigenere algorithm
     """
     clean = filter_string(string)
+    phrase = phrase.lower()
     return ''.join(encode_character(phrase[i % len(phrase)], c) for i, c in enumerate(clean))
 
 
@@ -125,6 +126,8 @@ def vigenere_decode(string, phrase):
     post: function returns a single string that is decoded with
         Vigenere algorithm
     """
+    string = filter_string(string)
+    phrase = phrase.lower()
     return ''.join(decode_character(phrase[i % len(phrase)], c) for i, c in enumerate(string))
 
 
